@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/shared/models/food';
+import { Tag } from 'src/app/shared/models/Tags';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,32 @@ export class FoodService {
 
   constructor() { }
 
+  getAllTags():Tag[]{
+    return[
+      {name:'All',count:14},
+      {name:'FastFood',count:4},
+      {name:'Pizza',count:2},
+      {name:'Lunch',count:3},
+      {name:'SlowFood',count:2},
+      {name:'Ravioli',count:1},
+      {name:'Fry',count:1},
+      {name:'Grill',count:1},
+    ];
+  }
+
+
+  getFoodById(id:number): Food{
+      return this.getAll().find(food=> food.id==id)!;
+  }
+
+
+  getAllFoodsByTag(tag:String):Food[]{
+    if(tag=="All"){
+      return this.getAll();
+    }else{
+      return this.getAll().filter(food=>food.tags?.includes(tag));
+    }
+  }
 
   getAll():Food[]{
     return[
@@ -42,7 +69,7 @@ export class FoodService {
         origins: ['Italy', 'us'],
         stars: 3.5,
         imageUrl: '/assets/images/image4.jpg',
-        tags: ['FastFood', 'RAvioly'],
+        tags: ['FastFood', 'Ravioli'],
       },
       {
         id: 4,
@@ -64,7 +91,7 @@ export class FoodService {
         origins: ['india', 'asia'],
         stars: 3.0,
         imageUrl: '/assets/images/image5.jpg',
-        tags: ['SlowFood', 'Soup'],
+        tags: ['SlowFood', 'Grill'],
       },
       {
         id: 6,

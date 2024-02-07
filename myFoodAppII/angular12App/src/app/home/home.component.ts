@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
           this.foods=this.foodservice.getAll().filter(food=>
             food.name.toLocaleLowerCase().includes(params.searchTerm.toLowerCase())
           );
+          }else if(params.tag){
+            this.foods= this.foodservice.getAllFoodsByTag(params.tag);
         }else{
           this.foods=this.foodservice.getAll();
         }

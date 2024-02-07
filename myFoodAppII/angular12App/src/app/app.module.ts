@@ -8,12 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 //import { RatingModule } from 'ng-starrating';
 import { FormsModule } from '@angular/forms';
+import { TagsComponent } from './tags/tags.component';
+import { FoodPageComponent } from './food-page/food-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    TagsComponent,
+    FoodPageComponent
   ],
   imports: [
     BrowserModule,
