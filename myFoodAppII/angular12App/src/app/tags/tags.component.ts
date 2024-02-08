@@ -11,8 +11,11 @@ export class TagsComponent implements OnInit {
 
   @Input()
   foodPageTags?:string[];
-  tags?:Tag[];
 
+  @Input()
+  justifyContent:string='center';
+
+  tags?:Tag[];
   constructor(private foodService:FoodService) { }
   ngOnInit(): void {
     if(!this.foodPageTags)
